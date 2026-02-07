@@ -222,6 +222,7 @@ def plot_correlation_heatmap(returns):
     # Saving the plot to its own output directory:
     plt.savefig(f"{correlation_heatmap_output_directory}/correlation_heatmap.png",
                 dpi=300) # High resolution
+    
     plt.close()
 
 def plot_return_distribution(returns):
