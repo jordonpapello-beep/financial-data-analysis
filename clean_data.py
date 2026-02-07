@@ -38,7 +38,7 @@ def compute_log_returns(prices):
                              Simple returns must be multiplied (which is math-heavy) To calculate the
                              total return using simple returns, you have to account for compounding:
 
-                             Return_Total = [ (1 + r_1) • ( 1+ r_2) • ... • (1 + r_n) ] - 1)
+                             Return_Total = [ (1 + r_1) • ( 1+ r_2) • ... • (1 + r_n) ] - 1
 
         2.) Symmetry:        A 10% gain followed by a 10% loss doesn't bring a simple return back to zero,
                              but with log returns, (+0.10) and (-0.10) cancel out perfectly.
