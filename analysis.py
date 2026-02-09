@@ -129,7 +129,7 @@ def plot_rolling_volatility(returns):
         plt.figure(figsize=(10, 6)) # Set the dimensions of the image containing the plot
 
         # Loop over until you create a line for each ticker:
-        for col in ["AAPL", "MSFT", "GLD", "SPY"]:
+        for col in ["AAPL", "MSFT", "GLD", "SPY", "SCHD"]:
             returns[f"{col}_vol_{x}"].plot(label=col)
 
         # Labels choices:
@@ -187,7 +187,7 @@ def plot_correlation_heatmap(returns):
     assets move together.
     """
     # Main plot:
-    corr = returns[["AAPL", "MSFT", "GOOGL", "AMZN", "GLD", "SPY"]].corr()
+    corr = returns[["AAPL", "MSFT", "GOOGL", "AMZN", "GLD", "SPY", "SCHD"]].corr()
 
     plt.figure(figsize=(6, 6.5)) # Set the dimensions of the image containing the plot
     sns.heatmap(corr, annot=True,
@@ -222,7 +222,7 @@ def plot_correlation_heatmap(returns):
     # Saving the plot to its own output directory:
     plt.savefig(f"{correlation_heatmap_output_directory}/correlation_heatmap.png",
                 dpi=300) # High resolution
-    
+
     plt.close()
 
 def plot_return_distribution(returns):
