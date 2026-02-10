@@ -33,6 +33,8 @@ Now that **fetch_price_data()** is defined, we can run it in main() by assigning
 
 **2.) clean_data.py:**
 
+This file is where the **data transformations** happen. 
+
 **3.) analysis.py:**
 
 
