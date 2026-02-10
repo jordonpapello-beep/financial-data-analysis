@@ -15,7 +15,7 @@ output_directory.mkdir(exist_ok=True)  # Create the "data/raw" folders if they d
 
 def fetch_price_data(tickers, start, end):
     """
-    Download adjusted close price data for the given tickers and date range.
+    Download close price data for the given tickers and date range.
     The Close price is used (adjusted on yFinances' end for any splits/dividends) for daily price data
     This method takes in one or many (in the form of a list) tickers, a start, and an end date, and outputs close data
     Returns a time-series (index) which can be plotted on the x-axis, and price data which can be plotted as y-axis
