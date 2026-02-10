@@ -25,7 +25,7 @@ def fetch_price_data(tickers, start, end):
         start=start,
         end=end,
         progress=False # disable the visual progress bar in the console when downloading
-    )["Close"] # Only fetch the data in the 'Close' column
+    )["Close"] # Only fetch the ticker data from the 'Close' column
     return data.round(2) # If this line wasn't added, the returned data would contain too much decimal place precision
 
 def main():
