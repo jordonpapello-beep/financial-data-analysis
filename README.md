@@ -61,7 +61,7 @@ A lot of the code in the functions for the plots described above is just to make
 **Plotting Financial Data Complete**
 
 
-Visualization and Conclusions:
+Conclusions from Visualizations:
 ---
 After creating the plots and viewing them, many conclusions can be drawn that would be cumbersome or near impossible to draw from looking at the raw financial data in table form. Here are some of the conclusion that are possible to be darwn more clearly by reviewing the plots:
 
