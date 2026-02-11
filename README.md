@@ -52,7 +52,7 @@ Now we move into main() where we begin to transform the 'prcies' data by first l
 
 This file is where the **data plotting** happens. This script uses **pyplot** from **matplotlib** and **seaborn** in conjuction with each other to create the plots for this project. We begin by assigning the names of 'prices.csv' and 'returns.csv' realtive file paths to variables, creating directories for our plots, and by creating our loading function as we did in 'clean_data.py' so we can use our DataFrames in this script. Once these steps are done, all thats left to do is create a fucntion for each type of plot we want, and to run them in main().
 
-The plots we made for this project include the following: **price trends plots** which plots the daily price history of a stock over the past five years along with its 50/200 day moving averages, **rolling volatilty plots** which plots the intensity of price swings for multiple stocks over either 30/90 day periods, **correlation heatmaps** which tells you how closely or not stocks' prices follow eachother(if they're correlated), and **return distribution plots** which show the distribution curves of daily logarithmic returns for individual stocks over the past five years. 
+The plots we made for this project include the following: **price trends plots** which plots the daily price history of a stock over the past five years along with its 50/200 day moving averages, **rolling volatilty plots** which plots the intensity of price swings for multiple stocks over either 30/90 day periods, **correlation heatmap** which tells you how closely or not stocks' prices follow eachother(if they're correlated), and **return distribution plots** which show the distribution curves of daily logarithmic returns for individual stocks over the past five years. 
 
 A lot of the code in the functions for the plots described above is just to make them more appealing to look at. It is important I believe to note that the same plots can be coded with less lines of code (although they wouldn't be a visually pleasing, and therefore easier to read). 
 
@@ -64,5 +64,13 @@ A lot of the code in the functions for the plots described above is just to make
 Conclusions from Visualizations:
 ---
 After creating the plots and viewing them, many conclusions can be drawn that would be cumbersome or near impossible to draw from looking at the raw financial data in table form. Here are some of the conclusion that are possible to be darwn more clearly by reviewing the plots:
+
+**1.) Price Trends Plots:**
+
+**2.) Rolling Volatilty Plots:**
+
+**3.) Correlation Heatmaps:**
+
+**4.) Return Distribution Plots:**
 
 
