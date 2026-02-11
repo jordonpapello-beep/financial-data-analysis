@@ -39,6 +39,8 @@ So to start, we assign a variable to the name of our relative file path for 'pri
 
 • For more information on what both **daily log returns** and **rolling volatility** are and how they're calculated, refer to their functions in'clean_data.py'. Their significance are explained in depth in the comments.
 
+• Furthermore, we technically don't need to add **'load_price_data()'** to read the csv, but I believe it's cleaner to use it than to have **pd.read_csv(path, index_col=0, parse_dates=True)** in main.
+
 Now we move into main() where we begin to transform the 'prcies' data by first loading in the data using our 'load_price_data()' function. Now that we have access to that DataFrame we set 'returns' equal to 'compute_log_returns(prices)', which performs the log return calculation on the entire 'prices' DataFrame. Similarly, we calculate the rolling volatility for 30 and 90 days for each column of our new 'returns' DataFrame and assign these indiviadual DataFrames to 'vol_30' and 'vol_90' respectively. All of the new data has been calculated, so the final steps are to combine the retruns and volatility data into one DataFrame, and save it like we did with 'prices.csv' in 'fetch_data.py'. We can add the volatitily data easily by looping over the columns in 'returns' and adding the 30 and 90 day column data for each ticker in 'returns'. Now that we have one DataFrame with all of our transformed data, we can save it to the dircetory that we set up at the beginning of the script. We call this relative file path 'returns.csv'.
 
 **Note:** There wasn't any real 'data cleaning' as the fetched data was already in optimal form for the DataFrame transformations. But if the data needed to be cleaned(which it usually needs to be), it would've happended in this file which is why it is called 'clean_data.py'.
@@ -48,7 +50,15 @@ Now we move into main() where we begin to transform the 'prcies' data by first l
 
 **3.) analysis.py:**
 
-This file is where the **data plotting** happens. This script uses **pyplot** from **matplotlib** and **seaborn** in conjuction with each other to create the plots for this project. We begin by
+This file is where the **data plotting** happens. This script uses **pyplot** from **matplotlib** and **seaborn** in conjuction with each other to create the plots for this project. We begin by assigning the names of 'prices.csv' and 'returns.csv' realtive file paths to variables, creating directories for our plots, and by creating our loading function as we did in 'clean_data.py' so we can use our DataFrames in this script. Once these steps are done, all thats left to do is create a fucntion for each type of plot we want, and to run them in main().
+
+The plots we made for this project include the following: **price trends plots** which plots the daily price history of a stock over the past five years along with its 50/200 day moving averages, **rolling volatilty plots** which plots the intensity of price swings for multiple stocks over either 30/90 day periods, **correlation heatmaps** which tells you how closely or not stocks' prices follow eachother(if they're correlated), and **return distribution plots** which show the distribution curves of daily logarithmic returns for individual stocks over the past five years. 
+
+A lot of the code in the functions for the plots described above is just to make them more appealing to look at. It is important I believe to note that the same plots can be coded with less lines of code (although they wouldn't be a visually pleasing, and therefore easier to read). 
+
+• **Note:** More detailed descriptions and examples for what the individual plots signify can be found on the plots themselves in their captions in the **plots** folder. 
+
+**Plotting Financial Data Complete**
 
 
 Visualization and Conclusions:
