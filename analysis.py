@@ -241,15 +241,20 @@ def plot_return_distribution(returns):
 
     # Loop over until you create a histogram for each ticker:
     for col in filtered_for_tickers:
+        # Set the theme:
+        sns.set_theme(style="darkgrid")  # Adds the grey backdrop and the gridlines
+
         # Main plot:
         plt.figure(figsize=(9, 6)) # Set the dimensions of the image containing the plot
         returns[col].dropna().hist(bins='auto', # matplotlib will determine how many bars are optimal for the histogram
                                    alpha=0.7)
 
-        # Calculate the mean, 1std, and 95 percentile (VaR)
+        # Calculate the mean, 1std, 95 percentile (VaR), lowest and greatest values:
         mean_val = returns[col].mean() # expected return
         std_val = returns[col].std() # 68% of all data will fall within 1std of the mean
         var_95 = returns[col].quantile(0.05) # Value at Risk (VaR) the point where only 5% of days were worse.
+        lowest = returns[col].min() # minimum return value
+        greatest = returns[col].max() # maximum return value
 
         # Creates a line at x=0:
         plt.axvline(x=0,
@@ -285,6 +290,19 @@ def plot_return_distribution(returns):
                     linewidth=1.5,
                     label=f'Value at Risk = {var_95.round(5)}'
                     )
+        # Creates a vertical line at Lowest and Greatest Return Values:
+        plt.axvline(x=lowest,
+                    color='blue',
+                    linestyle='-',
+                    linewidth=1.5,
+                    label=f'Lowest Return = {lowest.round(5)}'
+                    )
+        plt.axvline(x=greatest,
+                    color='blue',
+                    linestyle='-',
+                    linewidth=1.5,
+                    label=f'Greatest Return = {greatest.round(5)}'
+                    )
 
         # Labels choices:
         plt.title(f"{col}'s Daily Return Distribution for the Past 5 Years",
@@ -299,14 +317,15 @@ def plot_return_distribution(returns):
         plt.legend()
 
         # Caption:
-        plt.figtext(0.03, 0.04,
+        plt.figtext(0.03, 0.02,
                     f"This plot shows the distribution of daily logarithmic returns for {col} for the past 5 years. The"
                     f" height of a bar tells you the number of days {col} had a return of that value. The vertical "
                     f"lines can help us analyze the plot further: values to the left of x=0 were not profitable while "
                     f"values to the right of x=0 were profitable, the mean value line shows the avg. expected return "
                     f"per day, the two standard dev. lines show where 68% of the data falls and represents the normal "
-                    f"swing range or volatility of {col}, and the red VaR line shows the point at which only 5% of "
-                    f"days had a worse return. Ideal Plot Characteristics: \n• the mean to be to the right of x=0,"
+                    f"swing range or volatility of {col}, the red VaR line shows the point at which only 5% of "
+                    f"days had a worse return, and the blue lines show the lowest and greatest value for a return in "
+                    f"the past five years. Ideal Plot Characteristics: \n• the mean to be to the right of x=0,"
                     f" which means the stock is consistently making money. \n• the shape of the curve is tall and "
                     f"skinny which indicates low variance and predictability. \n• the tail on the left side is thin "
                     f"indicating not many occurrences of heavy loss days, and the tail on the right is longer "
