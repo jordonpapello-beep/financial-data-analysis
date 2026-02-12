@@ -136,7 +136,7 @@ def plot_rolling_volatility(returns):
         plt.figure(figsize=(10, 6)) # Set the dimensions of the image containing the plot
 
         # Loop over until you create a line for each ticker:
-        for col in ["MSFT", "GLD", "SPY", "SCHD"]:
+        for col in ["GLD", "SCHD", "SPY"]: # Adjust this list to filter what stocks/ETFs you want to show
             returns[f"{col}_vol_{x}"].plot(label=col)
 
         # Labels choices:
