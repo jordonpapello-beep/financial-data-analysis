@@ -3,7 +3,7 @@ from datetime import datetime, timedelta # For the rolling time window
 from pathlib import Path # Import Path for working with file paths in a cross-platform way
 
 # List of assets to analyze; kept centralized for easy modification:
-ticker_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "GLD", "SPY", "SCHD"]
+ticker_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "GLD", "SCHD", "SPY"]
 
 # Define a rolling 5-year window ending at today's date:
 end_date = datetime.today()
