@@ -63,6 +63,8 @@ A lot of the code in the functions for the plots described above is just to make
 
 Conclusions from Visualizations:
 ---
+**PLOTS LAST UPDATED: (Feb. 11th 2026)**
+
 After creating the plots and viewing them, many conclusions can be drawn that would be cumbersome or near impossible to draw from looking at the raw financial data in table form. All of the types of plots also include a visualization of the **SPY: S&P 500 ETF Trust** which acts as the "control" group that you can compare all other plots to. SPY is used as the control because it very closely tracks the broad U.S. stock markets performance through the S&P 500 index. GLD is also included in here to act as a contrast benchmark as it has different marco drivers for its value like inflation expectations, dollar strength, and real rates(inflation-adjusted cost of holding non-yielding assets). 
 
 **So what are we trying to measure?**
