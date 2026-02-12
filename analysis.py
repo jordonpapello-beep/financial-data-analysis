@@ -194,7 +194,7 @@ def plot_correlation_heatmap(returns):
     assets move together.
     """
     # Main plot:
-    corr = returns[["AAPL", "MSFT", "GOOGL", "AMZN", "GLD", "SPY", "SCHD"]].corr()
+    corr = returns[["AAPL", "MSFT", "GOOGL", "AMZN", "GLD", "SCHD", "SPY"]].corr()
 
     plt.figure(figsize=(6, 6.5)) # Set the dimensions of the image containing the plot
     sns.heatmap(corr, annot=True,
