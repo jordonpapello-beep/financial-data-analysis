@@ -63,11 +63,37 @@ A lot of the code in the functions for the plots described above is just to make
 
 Conclusions from Visualizations:
 ---
-After creating the plots and viewing them, many conclusions can be drawn that would be cumbersome or near impossible to draw from looking at the raw financial data in table form. Here are some of the conclusion that are possible to be darwn more clearly by reviewing the plots:
+After creating the plots and viewing them, many conclusions can be drawn that would be cumbersome or near impossible to draw from looking at the raw financial data in table form. All of the types of plots also include a visualization of the **SPY: S&P 500 ETF Trust** which acts as the "control" group that you can compare all other plots to. SPY is used as the control because it very closely tracks the broad U.S. stock markets performance through the S&P 500 index. GLD is also included in here to act as a contrast benchmark as it has different marco drivers for its value like inflation expectations, dollar strength, and real rates(inflation-adjusted cost of holding non-yielding assets). 
+
+**So what are we trying to measure?**
+Overall stock(tech heavy)/individual tech stocks/dividend fund(financials and industrials heavy)/Gold 5YR TRENDS
+Do the tech stocks over/under perform SPY?
+How does GLD perform during overall market downturns?
+How correlated are individual tech stocks to overall market?
+Rank tech stocks by the shape of their returns distributions and compare to overall market.
+
+
+
+
+
+Here are some of the conclusions that are possible to be darwn more clearly by reviewing the plots:
+
 
 **1.) Price Trends Plots:**
 
+**Stocks/Funds Analyzed:** AAPL, AMZN, GLD, GOOGL, MSFT, SCHD, SPY
+
+After reviewing the plots for these stocks/funds...
+
 **2.) Rolling Volatilty Plots:**
+
+Compare rolling volatilities to see what tickers have more unstable returns over the 5YR time period.
+  Higher values mean: 
+      • Bigger Price Swings: larger daily moves, more dispersion in returns, bigger spikes and drops.
+      • Higher Risk: higher volatility means more uncertainty about shirt-term outcomes.
+      • More Reactive: higher vol stocks tend to react more to news, more sensitive to macro events.
+
+
 
 **3.) Correlation Heatmaps:**
 
