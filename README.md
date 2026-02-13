@@ -54,7 +54,7 @@ This file is where the **data plotting** happens. This script uses **pyplot** fr
 
 The plots we made for this project include the following: **price trends plots** which plots the daily price history of a stock over the past five years along with its 50/200 day moving averages, **rolling volatilty plots** which plots the intensity of price swings for multiple stocks over either 30/90 day periods, **correlation heatmap** which tells you how closely or not stocks' prices follow eachother(if they're correlated), and **return distribution plots** which show the distribution curves of daily logarithmic returns for individual stocks over the past five years. 
 
-A lot of the code in the functions for the plots described above is just to make them more appealing to look at. It is important I believe to note that the same plots can be coded with less lines of code (although they wouldn't be a visually pleasing, and therefore easier to read). 
+A lot of the code in the functions for the plots described above is just to make them more appealing to look at. It is important I believe to note that the same plots can be coded with less lines of code (although they wouldn't be a visually pleasing, and therefore would be harder to read). 
 
 • **Note:** More detailed descriptions and examples for what the individual plots signify can be found on the plots themselves in their captions in the **plots** folder. 
 
