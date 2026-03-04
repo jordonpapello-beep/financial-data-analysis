@@ -7,10 +7,16 @@ This project is a modular Python-based data pipeline designed to automate the re
 PROJECT ORDER:
 ---
 Here's the order this project's folders should be ran and viewed in:
-- fetch_data.py
-- clean_data.py
-- analysis.py
-- plots
+- python files / fetch_data.py
+  - data / raw / prices.csv (to view scraped data)
+- python files / clean_data.py
+  - data / processed / returns.csv (to view transformed data)
+- python files / analysis.py
+- plots / 
+  - price_trends
+  - rolling_volatility
+  - correlation_heatmap
+  - return_distribution
 
 IN DEPTH DESCRIPTION:
 ---
