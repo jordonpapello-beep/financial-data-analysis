@@ -89,7 +89,7 @@ def plot_price_trends(prices):
 
         plt.legend()
 
-        plt.tight_layout(rect=(0, .18, 1, 1)) # Trims the margins around the plot for cleaner look
+        plt.tight_layout(rect=(0, .19, 1, 1)) # Trims the margins around the plot for cleaner look
 
         # Force the rotation on the active axis down here because tight_layout() overwrites it:
         plt.tick_params(axis='x',
@@ -98,12 +98,13 @@ def plot_price_trends(prices):
         # Caption:   figtext(x, y)
         plt.figtext(0.02, 0.01,
                     f"The plot above shows the price history for the past 5 years of {col}, as well as the 50-Day and "
-                    f"200-Day moving averages. The dates at which the short-term and long-term moving averages cross "
-                    f"each other are known as either \"Breakouts\" or \"Breakdowns\". The main these crossings can "
-                    f"tells us are the swings in momentum in the stocks price:\n"
-                    f"• \"Golden Cross\" (Bullish / Buy Signal): When the 50-Day crosses over the 200-Day, short-term "
-                    f"momentum is accelerating faster than the long-term average. This suggests that the stock is "
-                    f"entering a sustained \"Uptrend\".\n"
+                    f"200-Day moving averages. There are many financial indicators that can be used to draw "
+                    f"conclusions by viewing a plot like this. For instance, the dates at which the short-term and "
+                    f"long-term moving averages cross each other are known as either \"Breakouts\" or \"Breakdowns\". "
+                    f"The main thing these crossings demonstrate to us are the swings in momentum in the assets price:"
+                    f"\n• \"Golden Cross\" (Bullish / Buy Signal): When the 50-Day crosses over the 200-Day, "
+                    f"short-term momentum is accelerating faster than the long-term average. This suggests that the "
+                    f"stock is entering a sustained \"Uptrend\".\n"
                     f"• \"Death Cross\" (Bearish / Sell Signal): When the 50-Day crosses under the 200-Day, short-term "
                     f"prices are dropping sharply relative to the yearly average. This indicates that the stock’s "
                     f"upward momentum has collapsed.\n"
@@ -136,7 +137,7 @@ def plot_rolling_volatility(returns):
         plt.figure(figsize=(10, 6)) # Set the dimensions of the image containing the plot
 
         # Loop over until you create a line for each ticker:
-        for col in ["GLD", "SCHD", "SPY"]: # Adjust this list to filter what stocks/ETFs you want to show
+        for col in ["VTI", "TSLA", "BTC-USD", "PG"]: # Adjust this list to filter what stocks/ETFs you want to show
             returns[f"{col}_vol_{x}"].plot(label=col)
 
         # Labels choices:
@@ -155,9 +156,9 @@ def plot_rolling_volatility(returns):
         # Create a step every 3 months:
         ticks = pd.date_range(start=returns.index.min(),
                               end=returns.index.max(),
-                              freq='3MS')
+                              freq='3MS') # 3 months
         plt.xticks(ticks,
-                   ticks.strftime('%b %Y'))  # rotate the x-axis tick labels
+                   ticks.strftime('%b %Y'))  # date format for x-axis labels
 
         plt.figtext(0.01, 0.015,
                     f"Rolling volatility measures how much a stock's price 'swings' over a specific moving window of "
@@ -176,7 +177,7 @@ def plot_rolling_volatility(returns):
                     horizontalalignment='left',
                     fontsize=9,
                     style='italic')
-        plt.tight_layout(rect=(0, 0.14, 1, 1))  # Trims the margins around plot for cleaner look, add space for caption
+        plt.tight_layout(rect=(0, 0.175, 1, 1))  # Trims the margins around plot for cleaner look, add space for caption
 
         # Force the rotation on the active axis down here because tight_layout() overwrites it:
         plt.tick_params(axis='x',
@@ -194,27 +195,41 @@ def plot_correlation_heatmap(returns):
     assets move together.
     """
     # Main plot:
-    corr = returns[["AAPL", "MSFT", "GOOGL", "AMZN", "GLD", "SCHD", "SPY"]].corr()
+    corr = returns[["SPY", "QQQ", "TLT", "GLD", "XLE", "BTC-USD", "KO"]].corr() # Adjust list to filter shown assets
+
+    # Determining the average correlation of the heatmap:
+    # Get the values from the upper triangle, excluding the diagonal (k=1)
+    # This prevents double-counting pairs and ignores the 1.0 diagonal
+    tri_mask = np.triu(np.ones(corr.shape), k=1).astype(bool)
+    unique_corr = corr.where(tri_mask).stack()
+
+    # Calculate the average:
+    average_overall_corr = unique_corr.mean()
+
 
     plt.figure(figsize=(6, 6.5)) # Set the dimensions of the image containing the plot
     sns.heatmap(corr, annot=True,
                 cmap="coolwarm") # Color range style
 
     # Labels choices:
-    plt.title("Stock Return Correlation Heatmap",
+    plt.title(f"Stock Return Correlation Heatmap:\n AVG Corr: {average_overall_corr:.4f}",
               fontsize=18,
-              fontweight='bold')
+              fontweight='bold',
+              pad=5)
     plt.ylabel("Correlation (-1.0  to  1.0)",
                fontsize=14,
                fontweight='bold')
     plt.gca().yaxis.set_label_position("right") # Moves the text label to the right (cleaner for this plot)
-    plt.tight_layout(rect=(0, .2, 1, 1)) # Trims the margins around the plot for cleaner look
+    plt.tight_layout(rect=(0, .26, 1, 1.02)) # Trims the margins around the plot for cleaner look
 
     # Caption:
     plt.figtext(0.015, 0.01,
-                f"Above is a correlation heatmap on which our stocks are compared to each other one to one. This plot "
-                f"tells us how closely or not two stocks prices follow each other. This helps immensly when "
-                f"diversifying a protfolio. Here's what specific ranges of correlation between two stocks signifies:\n"
+                f"Above is a correlation heat map which compares assets' daily logarithmic returns to each other one "
+                f"to one (day-to-day percentage change). This plot measures the strength and direction of the linear relationship between the "
+                f"movements of two assets. This helps immensly when diversifying a protfolio, as it is common to try "
+                f"to build a portfolio with a low or negative total correlation. The average correlation is also "
+                f"shown above (assumes equal weights of assets in portfolio). Here's what specific ranges of "
+                f"correlation between two stocks signifies:\n"
                 f"• Positive Correlation (above 0 to 1): The two stocks move in the same or similar direction, by the "
                 f"same relative amount. \n"
                 f"• No Correlation (0): A correlation of 0 or close to 0 indicates that the stocks have no "
@@ -225,6 +240,7 @@ def plot_correlation_heatmap(returns):
                 horizontalalignment='left',
                 fontsize=9,
                 style='italic')
+
 
     # Saving the plot to its own output directory:
     plt.savefig(f"{correlation_heatmap_output_directory}/correlation_heatmap.png",
@@ -347,13 +363,15 @@ def main():
     prices = load_price_data(price_data_path)
     returns = load_price_data(returns_data_path)
 
-    # Generate all visual outputs:
+    # Generate all visual outputs (you can run all at once or one at a time if plotting varying lists of assets):
     plot_price_trends(prices)
-    plot_rolling_volatility(returns)
-    plot_correlation_heatmap(returns)
-    plot_return_distribution(returns)
+    #plot_rolling_volatility(returns)
+    #plot_correlation_heatmap(returns)
+    #plot_return_distribution(returns)
+
 
     print("All plots generated.")
+
 
 if __name__ == "__main__":
     main()
