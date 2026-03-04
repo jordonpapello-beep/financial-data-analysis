@@ -41,7 +41,7 @@ The raw data is saved as `prices.csv` for use in subsequent scripts without the 
 
 This script executes **data transformations**, converting raw prices into a processed `returns` DataFrame.
 
-* **Key Functions:** We define **'load_price_data()'**, **'compute_log_returns()'**, and **'compute_rolling_volatility()'** to structure the pipeline.
+* **Key Functions:** We define `load_price_data()`, `compute_log_returns()`, and `compute_rolling_volatility()` to structure the pipeline.
 * **Log Returns & Volatility:** We transform price data into **daily log returns** (% rates of change) and calculate **rolling volatility** for 30 and 90-day windows.
 * **Data Alignment:** We drop rows with NA values to ensure a clean comparison between assets (like Crypto) that trade outside the standard 252-day market.
 
