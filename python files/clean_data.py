@@ -50,7 +50,7 @@ def compute_log_returns(prices):
 
 def compute_rolling_volatility(returns, window):
     """
-    This method computes annualized rolling volatility using a specified window.
+    This method computes annualized rolling volatility using a specified time window.
     The sqrt(252) factor annualizes daily standard deviation.
     Rolling volatility measures how much a stock's price 'swings' over a specific moving window of
     time (e.g., the last 30 days) rather than looking at the entire year at once.
