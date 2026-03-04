@@ -2,8 +2,13 @@ import yfinance as yf # Where we will be scraping the data from
 from datetime import datetime, timedelta # For the rolling time window
 from pathlib import Path # Import Path for working with file paths in a cross-platform way
 
-# List of assets to analyze; kept centralized for easy modification:
-ticker_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "GLD", "SCHD", "SPY"]
+# Lists of assets to analyze; kept centralized for easy modification.
+# I included all the different lists I used for my GitHub plots. In practice, one list should be used and ran for all:
+ticker_list = ["NVDA", "AAPL", "TSLA"] # 5 year price trends
+#ticker_list = ["VTI", "TSLA", "BTC-USD", "PG"] # rolling volatility
+#ticker_list = ["SPY", "QQQ", "TLT", "GLD", "XLE", "BTC-USD", "KO"] # correlation heat map
+#ticker_list = ["TSLA", "PEP"] # daily returns distribution histogram
+
 
 # Define a rolling 5-year window ending at today's date:
 end_date = datetime.today()
