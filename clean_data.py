@@ -90,6 +90,11 @@ def main():
     # Load raw price data that we created in our 'fetch_data.py' script:
     prices = load_price_data(input_path)
 
+    # Drop rows (weekends/holidays) where stocks don't have data
+    # This aligns BTC-USD and other nonstandard assets to the stock market's 252-day calendar. This allows for an
+    # apples to apples comparison of assets like Bitcoin to standard assets traded on the 252-day calendar:
+    prices = prices.dropna()
+
     # Core table/DataFrame transformations:
     returns = compute_log_returns(prices) # Table of daily % rates of change in the stocks' price using natural logs
     vol_30 = compute_rolling_volatility(returns, 30) # Table of % swing in a stocks price over the last 30 days
