@@ -69,7 +69,7 @@ A lot of the code in the functions for the plots described above is just to make
 
 Conclusions from Visualizations:
 ---
-**PLOTS LAST UPDATED: (Feb. 11th 2026)**
+**PLOTS LAST UPDATED: (Mar. 3rd 2026)**
 
 After creating the plots and viewing them, many conclusions can be drawn that would be cumbersome or near impossible to draw from looking at the raw financial data in table form....
 
