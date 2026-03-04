@@ -69,9 +69,13 @@ After creating the plots and viewing them, many conclusions can be drawn that wo
 
 **So what are we trying to measure?**
 Overall stock(tech heavy)/individual tech stocks/dividend fund(financials and industrials heavy)/Gold 5YR TRENDS
+
 Do the tech stocks over/under perform SPY?
+
 How does GLD perform during overall market downturns?
+
 How correlated are individual tech stocks to overall market?
+
 Rank tech stocks by the shape of their returns distributions and compare to overall market.
 
 
@@ -99,6 +103,6 @@ Compare rolling volatilities to see what tickers have more unstable returns over
 
 **3.) Correlation Heatmaps:**
 
-**4.) Return Distribution Plots:**
+**4.) Return Distribution Plots:** 
 
 
