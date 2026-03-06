@@ -139,7 +139,7 @@ The plots in this section visualize risk over time, a risk-spectrum. Instead of 
 
 **3.) Correlation Heatmaps:**
 
-**Stocks/Funds Analyzed:** SPY, QQQ, TLT, GLD, XLE, BTC-USD, KO
+**Assets Analyzed:** SPY, QQQ, TLT, GLD, XLE, BTC-USD, KO
 
 This heatmap visualizes the **Pearson Correlation Coefficient** between the daily log returns of each asset. It tells us how closely two assets move in relation to each other on a day-to-day basis. A variety of assets with varying correlations were specifically chosen in order to showcase what a diversified portfolio would look like on a heat map.
 
@@ -174,7 +174,7 @@ This heatmap visualizes the **Pearson Correlation Coefficient** between the dail
 
 **4.) Return Distribution Plots:** 
 
-**Stocks/Funds Analyzed:** PEP, TSLA
+**Stocks Analyzed:** PEP, TSLA
 
 These histograms visualize the frequency of daily gains and losses over the past 5 years. By overlaying statistical markers like Standard Deviation and Value at Risk (VaR), we can quantify the "shape of risk" for each ticker.
 Comparing PEP (Pepsi) and TSLA (Tesla) provides a perfect visual contrast between a "Steady Performer" and a "High-Risk/High-Reward" asset. Important Note: the plots may appear to have similar shapes until you consider their domains. Make sure ton double check the x-axis domain when reading the plots.
