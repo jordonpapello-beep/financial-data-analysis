@@ -6,7 +6,7 @@ This project is a modular Python-based data pipeline designed to automate the re
 ---------------------------------------------------------------------------------------------------------------
 PROJECT ORDER:
 ---
-Here's the order this project's folders should be ran and viewed in:
+Here's the order this project's folders should be viewed and ran in:
 - python files / `fetch_data.py`
   - data / raw / `prices.csv` (to view scraped data)
 - python files / `clean_data.py`
