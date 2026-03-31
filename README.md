@@ -62,7 +62,7 @@ The final stage is **data plotting**, using **matplotlib** (**pyplot**) and **se
     * **return distribution plots:** Showing the frequency and "shape" of daily log returns.
 * **Clarity & Design:** Significant code is dedicated to making these plots visually professional and easy to read. 
 
-**Note:** Detailed interpretations and captions for each visualization are located within the **plots** folder.
+>**Note:** Detailed interpretations and captions for each visualization are located within the **plots** folder.
 
 **Plotting Financial Data Complete**
 
@@ -71,7 +71,7 @@ Conclusions from Visualizations:
 ---
 After creating the plots and viewing them, many conclusions can be drawn that would be cumbersome or near impossible to draw from looking at the raw financial data in table form. Here are the observations and conclusions that I have drawn from the plots created in this project:
 
-**PLOTS LAST UPDATED: (Mar. 3rd 2026)**
+>**PLOTS LAST UPDATED: (Mar. 3rd 2026)**
 
 
 **1.) Price Trends and Moving Averages (50/200 Day) Plots:**
